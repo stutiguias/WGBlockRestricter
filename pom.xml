@@ -1,0 +1,87 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.mewin.WGBlockRestricter</groupId>
+  <artifactId>WGBlockRestricter</artifactId>
+  <version>0.6.8</version>
+  <name>WGBlockRestricter</name>
+  <description>WGBlockRestricter</description>
+  
+  <repositories>
+    <!-- Bukkit -->
+    <repository>
+      <id>bukkit-repo</id>
+      <url>http://repo.bukkit.org/content/groups/public/</url>
+    </repository>
+    <repository>
+        <id>sk89q-repo</id>
+        <url>http://maven.sk89q.com/repo/</url>
+    </repository>
+  </repositories>
+  
+  <dependencies>
+    <dependency>
+        <groupId>org.bukkit</groupId>
+        <artifactId>bukkit</artifactId>
+        <version>LATEST</version>
+        <type>jar</type>
+        <scope>compile</scope>
+    </dependency>
+    <dependency>
+        <groupId>com.sk89q</groupId>
+        <artifactId>worldguard</artifactId>
+        <version>5.8-SNAPSHOT</version>
+        <type>jar</type>
+        <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.mewin.WGCustomFlags</groupId>
+      <artifactId>WGCustomFlags</artifactId>
+      <version>1.6</version>
+      <scope>system</scope>
+      <systemPath>${basedir}/lib/WGCustomFlags.jar</systemPath>
+    </dependency>
+  </dependencies>
+  
+  <build>
+    <finalName>${project.name}</finalName>
+    <sourceDirectory>${basedir}/src/</sourceDirectory>
+    
+    <resources>
+      <resource>
+        <targetPath>.</targetPath>
+        <filtering>true</filtering>
+        <directory>${basedir}/src/</directory>
+        <includes>
+          <include>plugin.yml</include>
+          <include>flags.yml</include>
+          <include>config.yml</include>
+        </includes>
+      </resource>
+      
+    </resources>
+    
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.1</version>
+        <configuration>
+          <source>1.7</source>
+          <target>1.7</target>
+          <showDeprecation>false</showDeprecation>
+        </configuration>
+      </plugin>
+      
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>2.4</version>
+      </plugin>
+      
+    </plugins>
+  </build>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <mcmmo.version>1.4.06</mcmmo.version>
+  </properties>
+</project>
